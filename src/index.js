@@ -1,11 +1,14 @@
 import express from "express"
+import "./config/env.js"
 import cors from "cors"
 import { filmsRouter } from "./routes/filmsRouter.js"
 import { usersRouter } from "./routes/usersRouter.js"
 import { connectMongoDb } from "./config/connectMongoDb.js"
 import { authMiddleware } from "./middleware/authMiddleware.js"
+import { existsSync } from "node:fs"
+// ...tus otros imports
 
-process.loadEnvFile()
+if (existsSync(".env")) process.loadEnvFile() 
 const PORT = process.env.PORT
 const URI_DB = process.env.URI_DB
 
