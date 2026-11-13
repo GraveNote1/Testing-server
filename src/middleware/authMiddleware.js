@@ -1,7 +1,9 @@
 import jwt from "jsonwebtoken"
 
-process.loadEnvFile()
+import { existsSync } from "node:fs"
+// ...tus otros imports
 
+if (existsSync(".env")) process.loadEnvFile() 
 const authMiddleware = (req, res, next) => {
   try {
     const header = req.headers.authorization
