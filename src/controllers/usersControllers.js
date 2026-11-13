@@ -4,6 +4,9 @@ import bcryptjs from "bcryptjs"
 import jwt from "jsonwebtoken"
 import { successResponse, errorResponse } from "../utils/index.js"
 import { registerSchema, loginSchema } from "../validators/userValidators.js"
+import { existsSync } from "node:fs"
+
+if (existsSync(".env")) process.loadEnvFile()
 
 process.loadEnvFile()
 
