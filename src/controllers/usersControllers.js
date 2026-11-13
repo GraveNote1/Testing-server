@@ -5,10 +5,12 @@ import jwt from "jsonwebtoken"
 import { successResponse, errorResponse } from "../utils/index.js"
 import { registerSchema, loginSchema } from "../validators/userValidators.js"
 import { existsSync } from "node:fs"
+// ...tus otros imports
 
-if (existsSync(".env")) process.loadEnvFile()
+if (existsSync(".env")) process.loadEnvFile()   // ✅ esta sí
+// process.loadEnvFile()                         // ❌ borra esta si sigue ahí
 
-process.loadEnvFile()
+
 
 // ==============================
 // OBTENER USUARIOS
